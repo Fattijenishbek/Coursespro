@@ -79,11 +79,16 @@ WSGI_APPLICATION = 'coursespro.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dfvrjqj9kbcr5j',
+        'HOST': 'ec2-54-83-21-198.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER':'yvacvxpsndeyrv' ,
+        'PASSWORD': '79cc468a6d821355d539060ee78d91cc8dd14896a7e3e7869ec29188506e983e'
     }
 }
 
+# postgres://yvacvxpsndeyrv:79cc468a6d821355d539060ee78d91cc8dd14896a7e3e7869ec29188506e983e@ec2-54-83-21-198.compute-1.amazonaws.com:5432/dfvrjqj9kbcr5j
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
