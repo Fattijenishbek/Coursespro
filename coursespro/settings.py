@@ -91,8 +91,8 @@ DATABASES = {
 }
 
 DATABASES['default']=dj_database_url.config(conn_max_age=600)
-DATABASES['default'] = dj_database_url.config(default='postgres://yvacvxpsndeyrv:79cc468a6d821355d539060ee78d91cc8dd14896a7e3e7869ec29188506e983e@ec2-54-83-21-198.compute-1.amazonaws.com:5432/dfvrjqj9kbcr5j')
-DATABASES['default'] = dj_database_url.parse('postgres://yvacvxpsndeyrv:79cc468a6d821355d539060ee78d91cc8dd14896a7e3e7869ec29188506e983e@ec2-54-83-21-198.compute-1.amazonaws.com:5432/dfvrjqj9kbcr5j', conn_max_age=600)
+# DATABASES['default'] = dj_database_url.config(default='postgres://yvacvxpsndeyrv:79cc468a6d821355d539060ee78d91cc8dd14896a7e3e7869ec29188506e983e@ec2-54-83-21-198.compute-1.amazonaws.com:5432/dfvrjqj9kbcr5j')
+# DATABASES['default'] = dj_database_url.parse('postgres://yvacvxpsndeyrv:79cc468a6d821355d539060ee78d91cc8dd14896a7e3e7869ec29188506e983e@ec2-54-83-21-198.compute-1.amazonaws.com:5432/dfvrjqj9kbcr5j', conn_max_age=600)
 
 
 # postgres://yvacvxpsndeyrv:79cc468a6d821355d539060ee78d91cc8dd14896a7e3e7869ec29188506e983e@ec2-54-83-21-198.compute-1.amazonaws.com:5432/dfvrjqj9kbcr5j
