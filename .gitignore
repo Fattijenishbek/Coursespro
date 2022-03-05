@@ -33,7 +33,7 @@ local_settings.py
 .python-version
 
 # dotenv
-.env
+#.env
 
 # virtualenv
 .venv
