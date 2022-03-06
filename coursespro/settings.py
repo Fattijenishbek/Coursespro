@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = ['neo15heroku.herokuapp.com','0.0.0.0']
+ALLOWED_HOSTS = ['neo15heroku.herokuapp.com','0.0.0.0', '127.0.0.1']
 
 
 # Application definition
@@ -90,6 +90,13 @@ DATABASES = {
         'PORT':config('DB_PORT'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 DATABASES['default']=dj_database_url.config(conn_max_age=600)
 # DATABASES['default'] = dj_database_url.config(default='postgres://yvacvxpsndeyrv:79cc468a6d821355d539060ee78d91cc8dd14896a7e3e7869ec29188506e983e@ec2-54-83-21-198.compute-1.amazonaws.com:5432/dfvrjqj9kbcr5j')
