@@ -6,9 +6,9 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title = 'nsProject Doc',
+        title = 'Courses Project Doc',
         default_version= 'v1',
-        description='test description',
+        description='description: api for courses',
         license=openapi.License(name="BSD License"),
     ),
     public=True,
