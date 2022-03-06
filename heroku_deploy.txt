@@ -1,0 +1,47 @@
+Heroku deployment:
+heroku login
+git init
+git ad .
+git commit -m “initial commit”
+heroku create <herokuappname>
+heroku git:remote -a <herokuappname> #to add remotely
+pip install gunicorn #it’s needed to test remotely instead of python manage.py
+gunicorn <projectname>.wsgi  #to run remotely instead python manage.py
+touch Procfile
+in Procfile write -> web: gunicorn <projectname>.wsgi #so that in heroku also would run like this
+heroku local #runs through Procfile and runs the project for us. There we may see error related to allowed_host, so we should add that host to our ALLOWED_HOSTS =[] in settings
+pip freeze -> requirements.txt
+git add .
+git commit -m “message”
+git push heroku master  #after this we may see an error, which says about static directory, to collect static files.To solve that we should go to settings.py and after STATIC_URL, add STATIC_ROOT = os.path.join(BASE_DIR, ‘staticfiles’) - this is the file where static files will be collected into.
+git add .
+git commit -m”added static root”
+git push heroku master #after going through the link there may occur some error about host again, to solve we should add our heroku app host-link add to settings’ ALLOWED_HOSTS=[], or we can say the path like this =”neo15heroku.herokuapp.com”
+git add .
+git commit -m”added allowed host”
+git push heroku master 
+To change our database from sqlite database to postgresql: (coz sqlite is file database it can be deleted even if our app is running. So we want a persistence database)
+pip install psycopg2
+pip freeze -> requirements.txt
+In settings we will edit the 
+//// while handling with database, it’s better to leave secret_key and debug in settings rather than add them in .env file which you will ignore, heroku doesn’t know about them , so gives error even you will add this variables to congfig vars.///
+DATABASES=
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dfvrjqj9kbcr5j',
+        'HOST': 'ec2-54-83-21-198.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER':'yvacvxpsndeyrv' ,
+        'PASSWORD': '79cc468a6d821355d539060ee78d91cc8dd14896a7e3e7869ec29188506e983e'
+To get all these credentials we will open the app in heroku -> settings -> reveal config values -> get the DATABASE_URL = “postgres://yvacvxpsndeyrv:79cc468a6d821355d539060ee78d91cc8dd14896a7e3e7869ec29188506e983e@ec2-54-83-21-198.compute-1.amazonaws.com:5432/dfvrjqj9kbcr5j”
+As long as we didn’t migrate it remotely to postgres it gives an error like some field dean’t exist, coz table dean’t exist in database
+To solve: python manage.py migrate #it’s gonna generate the table inside the database that we configured. First we won’t see anything coz it’s an empty database
+git add .
+git commit -m”added database”
+git push heroku master
+To handle with static files:
+pip install whitenoise
+pip freeze -> requirements.txt
+settings -> MIDDLEWARE -> add “whitenoise.middleware.WhiteNoiseMiddleware”
+git add .
+git commit -m “added whitenoise”
+git push heroku master
