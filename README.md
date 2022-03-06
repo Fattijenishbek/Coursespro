@@ -4,14 +4,14 @@ Api for courses app where you can get information about adding, deleting and dis
 
 ## Getting Started
 
-Here is the instructions about how to install and run on your local machine also, there is a guide about deployment to heroku
+Here is the instructions about how to install and run on your local machine also, there is a [guide](https://github.com/Fattijenishbek/Coursespro/blob/master/heroku_deploy.txt) about deployment to heroku
 
 ### Prerequisites
 
 Download the repository from
 
 ```
-https://github.com/Fattijenishbek/CCoursespro.git
+https://github.com/Fattijenishbek/Coursespro.git
 ```
 
 ### Installing
